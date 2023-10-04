@@ -551,7 +551,7 @@ namespace VRChat.API.Client
             {
                 foreach (var cookie in options.Cookies)
                 {
-                    cookies.Add(new Cookie(cookie.Name, cookie.Value, cookie.Path, new Uri(baseUrl).Host));
+                    cookies.Add(new Cookie(cookie.Name, cookie.Value, "/", new Uri(baseUrl).Host));
                 }
             }
 
@@ -560,7 +560,9 @@ namespace VRChat.API.Client
                 ClientCertificates = configuration.ClientCertificates,
                 MaxTimeout = configuration.Timeout,
                 Proxy = configuration.Proxy,
-                UserAgent = configuration.UserAgent
+                UserAgent = configuration.UserAgent,
+                CookieContainer = cookies,
+               
             };
 
             RestClient client = new RestClient(clientOptions)
