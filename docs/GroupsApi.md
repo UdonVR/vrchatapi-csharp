@@ -35,6 +35,7 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 | [**LeaveGroup**](GroupsApi.md#leavegroup) | **POST** /groups/{groupId}/leave | Leave Group |
 | [**RemoveGroupMemberRole**](GroupsApi.md#removegroupmemberrole) | **DELETE** /groups/{groupId}/members/{userId}/roles/{groupRoleId} | Remove Role from GroupMember |
 | [**RespondGroupJoinRequest**](GroupsApi.md#respondgroupjoinrequest) | **PUT** /groups/{groupId}/requests/{userId} | Respond Group Join request |
+| [**SearchGroups**](GroupsApi.md#searchgroups) | **GET** /groups | Search Group |
 | [**UnbanGroupMember**](GroupsApi.md#unbangroupmember) | **DELETE** /groups/{groupId}/bans/{userId} | Unban Group Member |
 | [**UpdateGroup**](GroupsApi.md#updategroup) | **PUT** /groups/{groupId} | Update Group |
 | [**UpdateGroupGallery**](GroupsApi.md#updategroupgallery) | **PUT** /groups/{groupId}/galleries/{groupGalleryId} | Update Group Gallery |
@@ -2042,7 +2043,7 @@ catch (ApiException e)
 
 <a name="getgroupinvites"></a>
 # **GetGroupInvites**
-> List&lt;GroupMember&gt; GetGroupInvites (string groupId)
+> List&lt;GroupMember&gt; GetGroupInvites (string groupId, int? n = null, int? offset = null)
 
 Get Group Invites Sent
 
@@ -2071,11 +2072,13 @@ namespace Example
 
             var apiInstance = new GroupsApi(config);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
+            var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
+            var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
 
             try
             {
                 // Get Group Invites Sent
-                List<GroupMember> result = apiInstance.GetGroupInvites(groupId);
+                List<GroupMember> result = apiInstance.GetGroupInvites(groupId, n, offset);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2096,7 +2099,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get Group Invites Sent
-    ApiResponse<List<GroupMember>> response = apiInstance.GetGroupInvitesWithHttpInfo(groupId);
+    ApiResponse<List<GroupMember>> response = apiInstance.GetGroupInvitesWithHttpInfo(groupId, n, offset);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -2114,6 +2117,8 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **groupId** | **string** | Must be a valid group ID. |  |
+| **n** | **int?** | The number of objects to return. | [optional] [default to 60] |
+| **offset** | **int?** | A zero-based offset from the default object sorting from where search results start. | [optional]  |
 
 ### Return type
 
@@ -2241,7 +2246,7 @@ catch (ApiException e)
 
 <a name="getgroupmembers"></a>
 # **GetGroupMembers**
-> List&lt;GroupMember&gt; GetGroupMembers (string groupId, int? n = null, int? offset = null)
+> List&lt;GroupMember&gt; GetGroupMembers (string groupId, int? n = null, int? offset = null, GroupSearchSort? sort = null)
 
 List Group Members
 
@@ -2272,11 +2277,12 @@ namespace Example
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
             var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
             var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
+            var sort = (GroupSearchSort) "joinedAt:asc";  // GroupSearchSort? | The sort order of Group Member results (optional) 
 
             try
             {
                 // List Group Members
-                List<GroupMember> result = apiInstance.GetGroupMembers(groupId, n, offset);
+                List<GroupMember> result = apiInstance.GetGroupMembers(groupId, n, offset, sort);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2297,7 +2303,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // List Group Members
-    ApiResponse<List<GroupMember>> response = apiInstance.GetGroupMembersWithHttpInfo(groupId, n, offset);
+    ApiResponse<List<GroupMember>> response = apiInstance.GetGroupMembersWithHttpInfo(groupId, n, offset, sort);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -2317,6 +2323,7 @@ catch (ApiException e)
 | **groupId** | **string** | Must be a valid group ID. |  |
 | **n** | **int?** | The number of objects to return. | [optional] [default to 60] |
 | **offset** | **int?** | A zero-based offset from the default object sorting from where search results start. | [optional]  |
+| **sort** | **GroupSearchSort?** | The sort order of Group Member results | [optional]  |
 
 ### Return type
 
@@ -2443,7 +2450,7 @@ catch (ApiException e)
 
 <a name="getgrouprequests"></a>
 # **GetGroupRequests**
-> List&lt;GroupMember&gt; GetGroupRequests (string groupId)
+> List&lt;GroupMember&gt; GetGroupRequests (string groupId, int? n = null, int? offset = null)
 
 Get Group Join Requests
 
@@ -2472,11 +2479,13 @@ namespace Example
 
             var apiInstance = new GroupsApi(config);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
+            var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
+            var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
 
             try
             {
                 // Get Group Join Requests
-                List<GroupMember> result = apiInstance.GetGroupRequests(groupId);
+                List<GroupMember> result = apiInstance.GetGroupRequests(groupId, n, offset);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2497,7 +2506,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get Group Join Requests
-    ApiResponse<List<GroupMember>> response = apiInstance.GetGroupRequestsWithHttpInfo(groupId);
+    ApiResponse<List<GroupMember>> response = apiInstance.GetGroupRequestsWithHttpInfo(groupId, n, offset);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -2515,6 +2524,8 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **groupId** | **string** | Must be a valid group ID. |  |
+| **n** | **int?** | The number of objects to return. | [optional] [default to 60] |
+| **offset** | **int?** | A zero-based offset from the default object sorting from where search results start. | [optional]  |
 
 ### Return type
 
@@ -3124,6 +3135,102 @@ void (empty response body)
 | **200** | OK |  -  |
 | **401** | Error response due to missing auth cookie. |  -  |
 | **404** | Error response when trying to perform operations on a non-existing group. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="searchgroups"></a>
+# **SearchGroups**
+> List&lt;LimitedGroup&gt; SearchGroups (string query = null, int? offset = null, int? n = null)
+
+Search Group
+
+Searches Groups by name or shortCode
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class SearchGroupsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.vrchat.cloud/api/1";
+            var apiInstance = new GroupsApi(config);
+            var query = "query_example";  // string | Query to search for, can be either Group Name or Group shortCode (optional) 
+            var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
+            var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
+
+            try
+            {
+                // Search Group
+                List<LimitedGroup> result = apiInstance.SearchGroups(query, offset, n);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling GroupsApi.SearchGroups: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the SearchGroupsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Search Group
+    ApiResponse<List<LimitedGroup>> response = apiInstance.SearchGroupsWithHttpInfo(query, offset, n);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling GroupsApi.SearchGroupsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **query** | **string** | Query to search for, can be either Group Name or Group shortCode | [optional]  |
+| **offset** | **int?** | A zero-based offset from the default object sorting from where search results start. | [optional]  |
+| **n** | **int?** | The number of objects to return. | [optional] [default to 60] |
+
+### Return type
+
+[**List&lt;LimitedGroup&gt;**](LimitedGroup.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a list of LimitedGroup objects. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

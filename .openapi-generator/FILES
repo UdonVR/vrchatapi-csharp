@@ -59,6 +59,7 @@ docs/GroupPermission.md
 docs/GroupPrivacy.md
 docs/GroupRole.md
 docs/GroupRoleTemplate.md
+docs/GroupSearchSort.md
 docs/GroupUserVisibility.md
 docs/GroupsApi.md
 docs/InfoPush.md
@@ -80,6 +81,7 @@ docs/License.md
 docs/LicenseAction.md
 docs/LicenseGroup.md
 docs/LicenseType.md
+docs/LimitedGroup.md
 docs/LimitedUnityPackage.md
 docs/LimitedUser.md
 docs/LimitedWorld.md
@@ -98,6 +100,7 @@ docs/PlayerModerationType.md
 docs/PlayermoderationApi.md
 docs/Region.md
 docs/ReleaseStatus.md
+docs/RepresentedGroup.md
 docs/RequestInviteRequest.md
 docs/RespondGroupJoinRequest.md
 docs/Response.md
@@ -223,6 +226,7 @@ src/VRChat.API/Model/GroupPermission.cs
 src/VRChat.API/Model/GroupPrivacy.cs
 src/VRChat.API/Model/GroupRole.cs
 src/VRChat.API/Model/GroupRoleTemplate.cs
+src/VRChat.API/Model/GroupSearchSort.cs
 src/VRChat.API/Model/GroupUserVisibility.cs
 src/VRChat.API/Model/InfoPush.cs
 src/VRChat.API/Model/InfoPushData.cs
@@ -241,6 +245,7 @@ src/VRChat.API/Model/License.cs
 src/VRChat.API/Model/LicenseAction.cs
 src/VRChat.API/Model/LicenseGroup.cs
 src/VRChat.API/Model/LicenseType.cs
+src/VRChat.API/Model/LimitedGroup.cs
 src/VRChat.API/Model/LimitedUnityPackage.cs
 src/VRChat.API/Model/LimitedUser.cs
 src/VRChat.API/Model/LimitedWorld.cs
@@ -256,6 +261,7 @@ src/VRChat.API/Model/PlayerModeration.cs
 src/VRChat.API/Model/PlayerModerationType.cs
 src/VRChat.API/Model/Region.cs
 src/VRChat.API/Model/ReleaseStatus.cs
+src/VRChat.API/Model/RepresentedGroup.cs
 src/VRChat.API/Model/RequestInviteRequest.cs
 src/VRChat.API/Model/RespondGroupJoinRequest.cs
 src/VRChat.API/Model/Response.cs
