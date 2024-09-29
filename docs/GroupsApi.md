@@ -1,11 +1,12 @@
 # VRChat.API.Api.GroupsApi
 
-All URIs are relative to *https://api.vrchat.cloud/api/1*
+All URIs are relative to *https://vrchat.com/api/1*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**AddGroupGalleryImage**](GroupsApi.md#addgroupgalleryimage) | **POST** /groups/{groupId}/galleries/{groupGalleryId}/images | Add Group Gallery Image |
 | [**AddGroupMemberRole**](GroupsApi.md#addgroupmemberrole) | **PUT** /groups/{groupId}/members/{userId}/roles/{groupRoleId} | Add Role to GroupMember |
+| [**AddGroupPost**](GroupsApi.md#addgrouppost) | **POST** /groups/{groupId}/posts | Create a post in a Group |
 | [**BanGroupMember**](GroupsApi.md#bangroupmember) | **POST** /groups/{groupId}/bans | Ban Group Member |
 | [**CancelGroupRequest**](GroupsApi.md#cancelgrouprequest) | **DELETE** /groups/{groupId}/requests | Cancel Group Join Request |
 | [**CreateGroup**](GroupsApi.md#creategroup) | **POST** /groups | Create Group |
@@ -18,16 +19,19 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 | [**DeleteGroupGallery**](GroupsApi.md#deletegroupgallery) | **DELETE** /groups/{groupId}/galleries/{groupGalleryId} | Delete Group Gallery |
 | [**DeleteGroupGalleryImage**](GroupsApi.md#deletegroupgalleryimage) | **DELETE** /groups/{groupId}/galleries/{groupGalleryId}/images/{groupGalleryImageId} | Delete Group Gallery Image |
 | [**DeleteGroupInvite**](GroupsApi.md#deletegroupinvite) | **DELETE** /groups/{groupId}/invites/{userId} | Delete User Invite |
+| [**DeleteGroupPost**](GroupsApi.md#deletegrouppost) | **DELETE** /groups/{groupId}/posts/{notificationId} | Delete a Group post |
 | [**DeleteGroupRole**](GroupsApi.md#deletegrouprole) | **DELETE** /groups/{groupId}/roles/{groupRoleId} | Delete Group Role |
 | [**GetGroup**](GroupsApi.md#getgroup) | **GET** /groups/{groupId} | Get Group by ID |
 | [**GetGroupAnnouncements**](GroupsApi.md#getgroupannouncements) | **GET** /groups/{groupId}/announcement | Get Group Announcement |
 | [**GetGroupAuditLogs**](GroupsApi.md#getgroupauditlogs) | **GET** /groups/{groupId}/auditLogs | Get Group Audit Logs |
 | [**GetGroupBans**](GroupsApi.md#getgroupbans) | **GET** /groups/{groupId}/bans | Get Group Bans |
 | [**GetGroupGalleryImages**](GroupsApi.md#getgroupgalleryimages) | **GET** /groups/{groupId}/galleries/{groupGalleryId} | Get Group Gallery Images |
+| [**GetGroupInstances**](GroupsApi.md#getgroupinstances) | **GET** /groups/{groupId}/instances | Get Group Instances |
 | [**GetGroupInvites**](GroupsApi.md#getgroupinvites) | **GET** /groups/{groupId}/invites | Get Group Invites Sent |
 | [**GetGroupMember**](GroupsApi.md#getgroupmember) | **GET** /groups/{groupId}/members/{userId} | Get Group Member |
 | [**GetGroupMembers**](GroupsApi.md#getgroupmembers) | **GET** /groups/{groupId}/members | List Group Members |
 | [**GetGroupPermissions**](GroupsApi.md#getgrouppermissions) | **GET** /groups/{groupId}/permissions | List Group Permissions |
+| [**GetGroupPost**](GroupsApi.md#getgrouppost) | **GET** /groups/{groupId}/posts | Get posts from a Group |
 | [**GetGroupRequests**](GroupsApi.md#getgrouprequests) | **GET** /groups/{groupId}/requests | Get Group Join Requests |
 | [**GetGroupRoles**](GroupsApi.md#getgrouproles) | **GET** /groups/{groupId}/roles | Get Group Roles |
 | [**JoinGroup**](GroupsApi.md#joingroup) | **POST** /groups/{groupId}/join | Join Group |
@@ -40,11 +44,12 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 | [**UpdateGroup**](GroupsApi.md#updategroup) | **PUT** /groups/{groupId} | Update Group |
 | [**UpdateGroupGallery**](GroupsApi.md#updategroupgallery) | **PUT** /groups/{groupId}/galleries/{groupGalleryId} | Update Group Gallery |
 | [**UpdateGroupMember**](GroupsApi.md#updategroupmember) | **PUT** /groups/{groupId}/members/{userId} | Update Group Member |
+| [**UpdateGroupPost**](GroupsApi.md#updategrouppost) | **PUT** /groups/{groupId}/posts/{notificationId} | Edits a Group post |
 | [**UpdateGroupRole**](GroupsApi.md#updategrouprole) | **PUT** /groups/{groupId}/roles/{groupRoleId} | Update Group Role |
 
 <a name="addgroupgalleryimage"></a>
 # **AddGroupGalleryImage**
-> GroupGalleryImage AddGroupGalleryImage (string groupId, string groupGalleryId, AddGroupGalleryImageRequest addGroupGalleryImageRequest = null)
+> GroupGalleryImage AddGroupGalleryImage (string groupId, string groupGalleryId, AddGroupGalleryImageRequest addGroupGalleryImageRequest)
 
 Add Group Gallery Image
 
@@ -65,7 +70,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -74,7 +79,7 @@ namespace Example
             var apiInstance = new GroupsApi(config);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
             var groupGalleryId = ggal_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group gallery ID.
-            var addGroupGalleryImageRequest = new AddGroupGalleryImageRequest(); // AddGroupGalleryImageRequest |  (optional) 
+            var addGroupGalleryImageRequest = new AddGroupGalleryImageRequest(); // AddGroupGalleryImageRequest | 
 
             try
             {
@@ -119,7 +124,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **groupId** | **string** | Must be a valid group ID. |  |
 | **groupGalleryId** | **string** | Must be a valid group gallery ID. |  |
-| **addGroupGalleryImageRequest** | [**AddGroupGalleryImageRequest**](AddGroupGalleryImageRequest.md) |  | [optional]  |
+| **addGroupGalleryImageRequest** | [**AddGroupGalleryImageRequest**](AddGroupGalleryImageRequest.md) |  |  |
 
 ### Return type
 
@@ -167,7 +172,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -246,9 +251,108 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="addgrouppost"></a>
+# **AddGroupPost**
+> GroupPost AddGroupPost (string groupId, CreateGroupPostRequest createGroupPostRequest)
+
+Create a post in a Group
+
+Create a post in a Group.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class AddGroupPostExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://vrchat.com/api/1";
+            // Configure API key authorization: authCookie
+            config.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new GroupsApi(config);
+            var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
+            var createGroupPostRequest = new CreateGroupPostRequest(); // CreateGroupPostRequest | 
+
+            try
+            {
+                // Create a post in a Group
+                GroupPost result = apiInstance.AddGroupPost(groupId, createGroupPostRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling GroupsApi.AddGroupPost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the AddGroupPostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Create a post in a Group
+    ApiResponse<GroupPost> response = apiInstance.AddGroupPostWithHttpInfo(groupId, createGroupPostRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling GroupsApi.AddGroupPostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **groupId** | **string** | Must be a valid group ID. |  |
+| **createGroupPostRequest** | [**CreateGroupPostRequest**](CreateGroupPostRequest.md) |  |  |
+
+### Return type
+
+[**GroupPost**](GroupPost.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a GroupPost object. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="bangroupmember"></a>
 # **BanGroupMember**
-> GroupMember BanGroupMember (string groupId, BanGroupMemberRequest banGroupMemberRequest = null)
+> GroupMember BanGroupMember (string groupId, BanGroupMemberRequest banGroupMemberRequest)
 
 Ban Group Member
 
@@ -269,7 +373,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -277,7 +381,7 @@ namespace Example
 
             var apiInstance = new GroupsApi(config);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
-            var banGroupMemberRequest = new BanGroupMemberRequest(); // BanGroupMemberRequest |  (optional) 
+            var banGroupMemberRequest = new BanGroupMemberRequest(); // BanGroupMemberRequest | 
 
             try
             {
@@ -321,7 +425,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **groupId** | **string** | Must be a valid group ID. |  |
-| **banGroupMemberRequest** | [**BanGroupMemberRequest**](BanGroupMemberRequest.md) |  | [optional]  |
+| **banGroupMemberRequest** | [**BanGroupMemberRequest**](BanGroupMemberRequest.md) |  |  |
 
 ### Return type
 
@@ -341,6 +445,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Returns a list of GroupMember objects. |  -  |
+| **400** | Bad request error response when banning a user |  -  |
 | **401** | Error response due to missing auth cookie. |  -  |
 | **404** | Error response when trying to perform operations on a non-existing group. |  -  |
 
@@ -369,7 +474,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -443,7 +548,7 @@ void (empty response body)
 
 <a name="creategroup"></a>
 # **CreateGroup**
-> Group CreateGroup (CreateGroupRequest createGroupRequest = null)
+> Group CreateGroup (CreateGroupRequest createGroupRequest)
 
 Create Group
 
@@ -464,14 +569,14 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new GroupsApi(config);
-            var createGroupRequest = new CreateGroupRequest(); // CreateGroupRequest |  (optional) 
+            var createGroupRequest = new CreateGroupRequest(); // CreateGroupRequest | 
 
             try
             {
@@ -514,7 +619,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **createGroupRequest** | [**CreateGroupRequest**](CreateGroupRequest.md) |  | [optional]  |
+| **createGroupRequest** | [**CreateGroupRequest**](CreateGroupRequest.md) |  |  |
 
 ### Return type
 
@@ -540,7 +645,7 @@ catch (ApiException e)
 
 <a name="creategroupannouncement"></a>
 # **CreateGroupAnnouncement**
-> GroupAnnouncement CreateGroupAnnouncement (string groupId, CreateGroupAnnouncementRequest createGroupAnnouncementRequest = null)
+> GroupAnnouncement CreateGroupAnnouncement (string groupId, CreateGroupAnnouncementRequest createGroupAnnouncementRequest)
 
 Create Group Announcement
 
@@ -561,7 +666,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -569,7 +674,7 @@ namespace Example
 
             var apiInstance = new GroupsApi(config);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
-            var createGroupAnnouncementRequest = new CreateGroupAnnouncementRequest(); // CreateGroupAnnouncementRequest |  (optional) 
+            var createGroupAnnouncementRequest = new CreateGroupAnnouncementRequest(); // CreateGroupAnnouncementRequest | 
 
             try
             {
@@ -613,7 +718,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **groupId** | **string** | Must be a valid group ID. |  |
-| **createGroupAnnouncementRequest** | [**CreateGroupAnnouncementRequest**](CreateGroupAnnouncementRequest.md) |  | [optional]  |
+| **createGroupAnnouncementRequest** | [**CreateGroupAnnouncementRequest**](CreateGroupAnnouncementRequest.md) |  |  |
 
 ### Return type
 
@@ -640,7 +745,7 @@ catch (ApiException e)
 
 <a name="creategroupgallery"></a>
 # **CreateGroupGallery**
-> GroupGallery CreateGroupGallery (string groupId, CreateGroupGalleryRequest createGroupGalleryRequest = null)
+> GroupGallery CreateGroupGallery (string groupId, CreateGroupGalleryRequest createGroupGalleryRequest)
 
 Create Group Gallery
 
@@ -661,7 +766,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -669,7 +774,7 @@ namespace Example
 
             var apiInstance = new GroupsApi(config);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
-            var createGroupGalleryRequest = new CreateGroupGalleryRequest(); // CreateGroupGalleryRequest |  (optional) 
+            var createGroupGalleryRequest = new CreateGroupGalleryRequest(); // CreateGroupGalleryRequest | 
 
             try
             {
@@ -713,7 +818,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **groupId** | **string** | Must be a valid group ID. |  |
-| **createGroupGalleryRequest** | [**CreateGroupGalleryRequest**](CreateGroupGalleryRequest.md) |  | [optional]  |
+| **createGroupGalleryRequest** | [**CreateGroupGalleryRequest**](CreateGroupGalleryRequest.md) |  |  |
 
 ### Return type
 
@@ -740,7 +845,7 @@ catch (ApiException e)
 
 <a name="creategroupinvite"></a>
 # **CreateGroupInvite**
-> void CreateGroupInvite (string groupId, CreateGroupInviteRequest createGroupInviteRequest = null)
+> void CreateGroupInvite (string groupId, CreateGroupInviteRequest createGroupInviteRequest)
 
 Invite User to Group
 
@@ -761,7 +866,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -769,7 +874,7 @@ namespace Example
 
             var apiInstance = new GroupsApi(config);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
-            var createGroupInviteRequest = new CreateGroupInviteRequest(); // CreateGroupInviteRequest |  (optional) 
+            var createGroupInviteRequest = new CreateGroupInviteRequest(); // CreateGroupInviteRequest | 
 
             try
             {
@@ -809,7 +914,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **groupId** | **string** | Must be a valid group ID. |  |
-| **createGroupInviteRequest** | [**CreateGroupInviteRequest**](CreateGroupInviteRequest.md) |  | [optional]  |
+| **createGroupInviteRequest** | [**CreateGroupInviteRequest**](CreateGroupInviteRequest.md) |  |  |
 
 ### Return type
 
@@ -829,15 +934,16 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **400** | User &lt;displayName&gt; is already invited |  -  |
+| **400** | Bad request error response when creating a group invite. |  -  |
 | **401** | Error response due to missing auth cookie. |  -  |
+| **403** | Forbidden error response when creating a group invite. |  -  |
 | **404** | Error response when trying to perform operations on a non-existing group. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="creategrouprole"></a>
 # **CreateGroupRole**
-> GroupRole CreateGroupRole (string groupId, CreateGroupRoleRequest createGroupRoleRequest = null)
+> GroupRole CreateGroupRole (string groupId, CreateGroupRoleRequest createGroupRoleRequest)
 
 Create GroupRole
 
@@ -858,7 +964,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -866,7 +972,7 @@ namespace Example
 
             var apiInstance = new GroupsApi(config);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
-            var createGroupRoleRequest = new CreateGroupRoleRequest(); // CreateGroupRoleRequest |  (optional) 
+            var createGroupRoleRequest = new CreateGroupRoleRequest(); // CreateGroupRoleRequest | 
 
             try
             {
@@ -910,7 +1016,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **groupId** | **string** | Must be a valid group ID. |  |
-| **createGroupRoleRequest** | [**CreateGroupRoleRequest**](CreateGroupRoleRequest.md) |  | [optional]  |
+| **createGroupRoleRequest** | [**CreateGroupRoleRequest**](CreateGroupRoleRequest.md) |  |  |
 
 ### Return type
 
@@ -958,7 +1064,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -1056,7 +1162,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -1154,7 +1260,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -1254,7 +1360,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -1357,7 +1463,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -1425,7 +1531,108 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **400** | Bad request error response when deleting a group invite |  -  |
 | **401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="deletegrouppost"></a>
+# **DeleteGroupPost**
+> Success DeleteGroupPost (string groupId, string notificationId)
+
+Delete a Group post
+
+Delete a Group post
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class DeleteGroupPostExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://vrchat.com/api/1";
+            // Configure API key authorization: authCookie
+            config.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new GroupsApi(config);
+            var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
+            var notificationId = "notificationId_example";  // string | Must be a valid notification ID.
+
+            try
+            {
+                // Delete a Group post
+                Success result = apiInstance.DeleteGroupPost(groupId, notificationId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling GroupsApi.DeleteGroupPost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the DeleteGroupPostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Delete a Group post
+    ApiResponse<Success> response = apiInstance.DeleteGroupPostWithHttpInfo(groupId, notificationId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling GroupsApi.DeleteGroupPostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **groupId** | **string** | Must be a valid group ID. |  |
+| **notificationId** | **string** | Must be a valid notification ID. |  |
+
+### Return type
+
+[**Success**](Success.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Response after deleting a group post. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
+| **404** | Response after deleting a group post. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1452,7 +1659,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -1552,7 +1759,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -1652,7 +1859,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -1750,7 +1957,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -1856,7 +2063,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -1931,6 +2138,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | Returns a list of GroupMember objects. |  -  |
 | **401** | Error response due to missing auth cookie. |  -  |
+| **403** | Error response due to missing permissions. |  -  |
 | **404** | Error response when trying to perform operations on a non-existing group. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1958,7 +2166,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -2041,6 +2249,104 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="getgroupinstances"></a>
+# **GetGroupInstances**
+> List&lt;GroupInstance&gt; GetGroupInstances (string groupId)
+
+Get Group Instances
+
+Returns a list of group instances
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class GetGroupInstancesExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://vrchat.com/api/1";
+            // Configure API key authorization: authCookie
+            config.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new GroupsApi(config);
+            var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
+
+            try
+            {
+                // Get Group Instances
+                List<GroupInstance> result = apiInstance.GetGroupInstances(groupId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling GroupsApi.GetGroupInstances: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetGroupInstancesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get Group Instances
+    ApiResponse<List<GroupInstance>> response = apiInstance.GetGroupInstancesWithHttpInfo(groupId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling GroupsApi.GetGroupInstancesWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **groupId** | **string** | Must be a valid group ID. |  |
+
+### Return type
+
+[**List&lt;GroupInstance&gt;**](GroupInstance.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a list of GroupInstance objects. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
+| **404** | Error response when trying to perform operations on a non-existing group. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="getgroupinvites"></a>
 # **GetGroupInvites**
 > List&lt;GroupMember&gt; GetGroupInvites (string groupId, int? n = null, int? offset = null)
@@ -2064,7 +2370,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -2167,7 +2473,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -2240,13 +2546,14 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | Returns a list of GroupMember objects. |  -  |
 | **401** | Error response due to missing auth cookie. |  -  |
+| **403** | Error response when trying to perform operations on a group you are not member of. |  -  |
 | **404** | Error response when trying to perform operations on a non-existing group. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="getgroupmembers"></a>
 # **GetGroupMembers**
-> List&lt;GroupMember&gt; GetGroupMembers (string groupId, int? n = null, int? offset = null, GroupSearchSort? sort = null)
+> List&lt;GroupMember&gt; GetGroupMembers (string groupId, int? n = null, int? offset = null, GroupSearchSort? sort = null, string roleId = null)
 
 List Group Members
 
@@ -2267,7 +2574,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -2278,11 +2585,12 @@ namespace Example
             var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
             var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
             var sort = (GroupSearchSort) "joinedAt:asc";  // GroupSearchSort? | The sort order of Group Member results (optional) 
+            var roleId = "roleId_example";  // string | Only returns members with a specific groupRoleId (optional) 
 
             try
             {
                 // List Group Members
-                List<GroupMember> result = apiInstance.GetGroupMembers(groupId, n, offset, sort);
+                List<GroupMember> result = apiInstance.GetGroupMembers(groupId, n, offset, sort, roleId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2303,7 +2611,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // List Group Members
-    ApiResponse<List<GroupMember>> response = apiInstance.GetGroupMembersWithHttpInfo(groupId, n, offset, sort);
+    ApiResponse<List<GroupMember>> response = apiInstance.GetGroupMembersWithHttpInfo(groupId, n, offset, sort, roleId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -2324,6 +2632,7 @@ catch (ApiException e)
 | **n** | **int?** | The number of objects to return. | [optional] [default to 60] |
 | **offset** | **int?** | A zero-based offset from the default object sorting from where search results start. | [optional]  |
 | **sort** | **GroupSearchSort?** | The sort order of Group Member results | [optional]  |
+| **roleId** | **string** | Only returns members with a specific groupRoleId | [optional]  |
 
 ### Return type
 
@@ -2372,7 +2681,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -2448,9 +2757,112 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="getgrouppost"></a>
+# **GetGroupPost**
+> GroupPost GetGroupPost (string groupId, int? n = null, int? offset = null, bool? publicOnly = null)
+
+Get posts from a Group
+
+Get posts from a Group
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class GetGroupPostExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://vrchat.com/api/1";
+            // Configure API key authorization: authCookie
+            config.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new GroupsApi(config);
+            var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
+            var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
+            var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
+            var publicOnly = true;  // bool? | See public posts only. (optional) 
+
+            try
+            {
+                // Get posts from a Group
+                GroupPost result = apiInstance.GetGroupPost(groupId, n, offset, publicOnly);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling GroupsApi.GetGroupPost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetGroupPostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get posts from a Group
+    ApiResponse<GroupPost> response = apiInstance.GetGroupPostWithHttpInfo(groupId, n, offset, publicOnly);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling GroupsApi.GetGroupPostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **groupId** | **string** | Must be a valid group ID. |  |
+| **n** | **int?** | The number of objects to return. | [optional] [default to 60] |
+| **offset** | **int?** | A zero-based offset from the default object sorting from where search results start. | [optional]  |
+| **publicOnly** | **bool?** | See public posts only. | [optional]  |
+
+### Return type
+
+[**GroupPost**](GroupPost.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a GroupPost object. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="getgrouprequests"></a>
 # **GetGroupRequests**
-> List&lt;GroupMember&gt; GetGroupRequests (string groupId, int? n = null, int? offset = null)
+> List&lt;GroupMember&gt; GetGroupRequests (string groupId, int? n = null, int? offset = null, bool? blocked = null)
 
 Get Group Join Requests
 
@@ -2471,7 +2883,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -2481,11 +2893,12 @@ namespace Example
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
             var n = 60;  // int? | The number of objects to return. (optional)  (default to 60)
             var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
+            var blocked = true;  // bool? | See blocked join requests (optional) 
 
             try
             {
                 // Get Group Join Requests
-                List<GroupMember> result = apiInstance.GetGroupRequests(groupId, n, offset);
+                List<GroupMember> result = apiInstance.GetGroupRequests(groupId, n, offset, blocked);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2506,7 +2919,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get Group Join Requests
-    ApiResponse<List<GroupMember>> response = apiInstance.GetGroupRequestsWithHttpInfo(groupId, n, offset);
+    ApiResponse<List<GroupMember>> response = apiInstance.GetGroupRequestsWithHttpInfo(groupId, n, offset, blocked);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -2526,6 +2939,7 @@ catch (ApiException e)
 | **groupId** | **string** | Must be a valid group ID. |  |
 | **n** | **int?** | The number of objects to return. | [optional] [default to 60] |
 | **offset** | **int?** | A zero-based offset from the default object sorting from where search results start. | [optional]  |
+| **blocked** | **bool?** | See blocked join requests | [optional]  |
 
 ### Return type
 
@@ -2545,6 +2959,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Returns a list of GroupMember objects. |  -  |
+| **400** | Bad request error response when responding to a group join request |  -  |
 | **403** | Error response when trying to perform operations on a group you are not member of. |  -  |
 | **404** | Error response when trying to perform operations on a non-existing group. |  -  |
 
@@ -2573,7 +2988,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -2671,7 +3086,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -2770,7 +3185,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -2867,7 +3282,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -2961,7 +3376,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -3042,7 +3457,7 @@ catch (ApiException e)
 
 <a name="respondgroupjoinrequest"></a>
 # **RespondGroupJoinRequest**
-> void RespondGroupJoinRequest (string groupId, string userId, RespondGroupJoinRequest respondGroupJoinRequest = null)
+> void RespondGroupJoinRequest (string groupId, string userId, RespondGroupJoinRequest respondGroupJoinRequest)
 
 Respond Group Join request
 
@@ -3063,7 +3478,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -3072,7 +3487,7 @@ namespace Example
             var apiInstance = new GroupsApi(config);
             var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
             var userId = "userId_example";  // string | Must be a valid user ID.
-            var respondGroupJoinRequest = new RespondGroupJoinRequest(); // RespondGroupJoinRequest |  (optional) 
+            var respondGroupJoinRequest = new RespondGroupJoinRequest(); // RespondGroupJoinRequest | 
 
             try
             {
@@ -3113,7 +3528,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **groupId** | **string** | Must be a valid group ID. |  |
 | **userId** | **string** | Must be a valid user ID. |  |
-| **respondGroupJoinRequest** | [**RespondGroupJoinRequest**](RespondGroupJoinRequest.md) |  | [optional]  |
+| **respondGroupJoinRequest** | [**RespondGroupJoinRequest**](RespondGroupJoinRequest.md) |  |  |
 
 ### Return type
 
@@ -3161,7 +3576,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             var apiInstance = new GroupsApi(config);
             var query = "query_example";  // string | Query to search for, can be either Group Name or Group shortCode (optional) 
             var offset = 56;  // int? | A zero-based offset from the default object sorting from where search results start. (optional) 
@@ -3257,7 +3672,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -3357,7 +3772,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -3457,7 +3872,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -3559,7 +3974,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -3638,6 +4053,108 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="updategrouppost"></a>
+# **UpdateGroupPost**
+> GroupPost UpdateGroupPost (string groupId, string notificationId, CreateGroupPostRequest createGroupPostRequest)
+
+Edits a Group post
+
+Edits a Group post
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using VRChat.API.Api;
+using VRChat.API.Client;
+using VRChat.API.Model;
+
+namespace Example
+{
+    public class UpdateGroupPostExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://vrchat.com/api/1";
+            // Configure API key authorization: authCookie
+            config.AddApiKey("auth", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("auth", "Bearer");
+
+            var apiInstance = new GroupsApi(config);
+            var groupId = grp_00000000-0000-0000-0000-000000000000;  // string | Must be a valid group ID.
+            var notificationId = "notificationId_example";  // string | Must be a valid notification ID.
+            var createGroupPostRequest = new CreateGroupPostRequest(); // CreateGroupPostRequest | 
+
+            try
+            {
+                // Edits a Group post
+                GroupPost result = apiInstance.UpdateGroupPost(groupId, notificationId, createGroupPostRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling GroupsApi.UpdateGroupPost: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the UpdateGroupPostWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Edits a Group post
+    ApiResponse<GroupPost> response = apiInstance.UpdateGroupPostWithHttpInfo(groupId, notificationId, createGroupPostRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling GroupsApi.UpdateGroupPostWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **groupId** | **string** | Must be a valid group ID. |  |
+| **notificationId** | **string** | Must be a valid notification ID. |  |
+| **createGroupPostRequest** | [**CreateGroupPostRequest**](CreateGroupPostRequest.md) |  |  |
+
+### Return type
+
+[**GroupPost**](GroupPost.md)
+
+### Authorization
+
+[authCookie](../README.md#authCookie)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns a GroupPost object. |  -  |
+| **401** | Error response due to missing auth cookie. |  -  |
+| **404** | Response after deleting a group post. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="updategrouprole"></a>
 # **UpdateGroupRole**
 > List&lt;GroupRole&gt; UpdateGroupRole (string groupId, string groupRoleId, UpdateGroupRoleRequest updateGroupRoleRequest = null)
@@ -3661,7 +4178,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed

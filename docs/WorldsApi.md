@@ -1,6 +1,6 @@
 # VRChat.API.Api.WorldsApi
 
-All URIs are relative to *https://api.vrchat.cloud/api/1*
+All URIs are relative to *https://vrchat.com/api/1*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -41,7 +41,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             var apiInstance = new WorldsApi(config);
             var createWorldRequest = new CreateWorldRequest(); // CreateWorldRequest |  (optional) 
 
@@ -134,7 +134,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -228,7 +228,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -347,7 +347,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -469,7 +469,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -591,7 +591,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             var apiInstance = new WorldsApi(config);
             var worldId = "worldId_example";  // string | Must be a valid world ID.
 
@@ -683,7 +683,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -782,7 +782,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -879,7 +879,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -977,7 +977,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -1050,7 +1050,7 @@ void (empty response body)
 
 <a name="searchworlds"></a>
 # **SearchWorlds**
-> List&lt;LimitedWorld&gt; SearchWorlds (bool? featured = null, SortOption? sort = null, string user = null, string userId = null, int? n = null, OrderOption? order = null, int? offset = null, string search = null, string tag = null, string notag = null, ReleaseStatus? releaseStatus = null, string maxUnityVersion = null, string minUnityVersion = null, string platform = null)
+> List&lt;LimitedWorld&gt; SearchWorlds (bool? featured = null, SortOption? sort = null, string user = null, string userId = null, int? n = null, OrderOption? order = null, int? offset = null, string search = null, string tag = null, string notag = null, ReleaseStatus? releaseStatus = null, string maxUnityVersion = null, string minUnityVersion = null, string platform = null, bool? fuzzy = null)
 
 Search All Worlds
 
@@ -1071,7 +1071,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -1092,11 +1092,12 @@ namespace Example
             var maxUnityVersion = "maxUnityVersion_example";  // string | The maximum Unity version supported by the asset. (optional) 
             var minUnityVersion = "minUnityVersion_example";  // string | The minimum Unity version supported by the asset. (optional) 
             var platform = "platform_example";  // string | The platform the asset supports. (optional) 
+            var fuzzy = true;  // bool? |  (optional) 
 
             try
             {
                 // Search All Worlds
-                List<LimitedWorld> result = apiInstance.SearchWorlds(featured, sort, user, userId, n, order, offset, search, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform);
+                List<LimitedWorld> result = apiInstance.SearchWorlds(featured, sort, user, userId, n, order, offset, search, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform, fuzzy);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1117,7 +1118,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Search All Worlds
-    ApiResponse<List<LimitedWorld>> response = apiInstance.SearchWorldsWithHttpInfo(featured, sort, user, userId, n, order, offset, search, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform);
+    ApiResponse<List<LimitedWorld>> response = apiInstance.SearchWorldsWithHttpInfo(featured, sort, user, userId, n, order, offset, search, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform, fuzzy);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1148,6 +1149,7 @@ catch (ApiException e)
 | **maxUnityVersion** | **string** | The maximum Unity version supported by the asset. | [optional]  |
 | **minUnityVersion** | **string** | The minimum Unity version supported by the asset. | [optional]  |
 | **platform** | **string** | The platform the asset supports. | [optional]  |
+| **fuzzy** | **bool?** |  | [optional]  |
 
 ### Return type
 
@@ -1194,7 +1196,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -1288,7 +1290,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed

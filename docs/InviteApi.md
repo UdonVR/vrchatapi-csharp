@@ -1,6 +1,6 @@
 # VRChat.API.Api.InviteApi
 
-All URIs are relative to *https://api.vrchat.cloud/api/1*
+All URIs are relative to *https://vrchat.com/api/1*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -36,7 +36,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -139,7 +139,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -239,7 +239,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -318,7 +318,7 @@ catch (ApiException e)
 
 <a name="inviteuser"></a>
 # **InviteUser**
-> SentNotification InviteUser (string userId, InviteRequest inviteRequest = null)
+> SentNotification InviteUser (string userId, InviteRequest inviteRequest)
 
 Invite User
 
@@ -339,7 +339,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -347,7 +347,7 @@ namespace Example
 
             var apiInstance = new InviteApi(config);
             var userId = "userId_example";  // string | Must be a valid user ID.
-            var inviteRequest = new InviteRequest(); // InviteRequest | Slot number of the Invite Message to use when inviting a user. (optional) 
+            var inviteRequest = new InviteRequest(); // InviteRequest | Slot number of the Invite Message to use when inviting a user.
 
             try
             {
@@ -391,7 +391,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **userId** | **string** | Must be a valid user ID. |  |
-| **inviteRequest** | [**InviteRequest**](InviteRequest.md) | Slot number of the Invite Message to use when inviting a user. | [optional]  |
+| **inviteRequest** | [**InviteRequest**](InviteRequest.md) | Slot number of the Invite Message to use when inviting a user. |  |
 
 ### Return type
 
@@ -438,7 +438,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -537,7 +537,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -620,7 +620,7 @@ catch (ApiException e)
 
 <a name="respondinvite"></a>
 # **RespondInvite**
-> Notification RespondInvite (string notificationId, InviteResponse inviteResponse = null)
+> Notification RespondInvite (string notificationId, InviteResponse inviteResponse)
 
 Respond Invite
 
@@ -641,7 +641,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -649,7 +649,7 @@ namespace Example
 
             var apiInstance = new InviteApi(config);
             var notificationId = "notificationId_example";  // string | Must be a valid notification ID.
-            var inviteResponse = new InviteResponse(); // InviteResponse | Slot number of the Response Message to use when responding to a user. (optional) 
+            var inviteResponse = new InviteResponse(); // InviteResponse | Slot number of the Response Message to use when responding to a user.
 
             try
             {
@@ -693,7 +693,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **notificationId** | **string** | Must be a valid notification ID. |  |
-| **inviteResponse** | [**InviteResponse**](InviteResponse.md) | Slot number of the Response Message to use when responding to a user. | [optional]  |
+| **inviteResponse** | [**InviteResponse**](InviteResponse.md) | Slot number of the Response Message to use when responding to a user. |  |
 
 ### Return type
 
@@ -740,7 +740,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed

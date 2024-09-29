@@ -1,6 +1,6 @@
 # VRChat.API.Api.FriendsApi
 
-All URIs are relative to *https://api.vrchat.cloud/api/1*
+All URIs are relative to *https://vrchat.com/api/1*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -33,7 +33,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -131,7 +131,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -201,6 +201,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Returns a single Notifcation object. |  -  |
+| **400** | Bad request error response when sending a friend request |  -  |
 | **401** | Error response due to missing auth cookie. |  -  |
 | **404** | Error response when trying to send a friend request to a user which doesn&#39;t exist. |  -  |
 
@@ -229,7 +230,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -326,7 +327,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -427,7 +428,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed

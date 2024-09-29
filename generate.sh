@@ -31,6 +31,18 @@ sed -i 's/cookies = new CookieContainer()/cookies = CookieContainer/' ./src/VRCh
 # Add result to CookieContainer
 sed -i '/result.Cookies.Add(cookie);/a \                    client.CookieContainer.Add(cookie);' ./src/VRChat.API/Client/ApiClient.cs
 
+for file in $(find ./src/VRChat.API -name '*.cs'); do
+    sed -i 's/new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"))/new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "\/", "vrchat.com")/g' $file
+    sed -i 's/new Cookie("twoFactorAuth", this.Configuration.GetApiKeyWithPrefix("twoFactorAuth"))/new Cookie("twoFactorAuth", this.Configuration.GetApiKeyWithPrefix("twoFactorAuth"), "\/", "vrchat.com")/g' $file
+    sed -i 's/new Cookie(cookie.Name, cookie.Value)/new Cookie(cookie.Name, cookie.Value, cookie.Path, cookie.Domain)/g' $file
+done
+
+# Fix username and password encoding
+sed -i 's/VRChat.API.Client.ClientUtils.Base64Encode(this.Configuration.Username + \":\" + this.Configuration.Password)/VRChat.API.Client.ClientUtils.Base64Encode(System.Web.HttpUtility.UrlEncode(this.Configuration.Username) + ":" + System.Web.HttpUtility.UrlEncode(this.Configuration.Password))/g' src/VRChat.API/Api/AuthenticationApi.cs
+
+# Disable URL encoding for path parameters
+sed -i 's/request.AddParameter(pathParam.Key, pathParam.Value, ParameterType.UrlSegment)/request.AddParameter(pathParam.Key, pathParam.Value, ParameterType.UrlSegment, false)/g' src/VRChat.API/Client/ApiClient.cs
+
 # Fix fields in csproj
 sed -i 's/OpenAPI Library/VRChat API Library for .NET/' src/VRChat.API/VRChat.API.csproj
 sed -i 's/A library generated from a OpenAPI doc/VRChat API Library for .NET/' src/VRChat.API/VRChat.API.csproj

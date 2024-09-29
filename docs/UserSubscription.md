@@ -11,9 +11,10 @@ Name | Type | Description | Notes
 **Amount** | **decimal** |  | 
 **Description** | **string** |  | 
 **Period** | **SubscriptionPeriod** |  | 
-**Tier** | **decimal** |  | 
+**Tier** | **int** |  | 
 **Active** | **bool** |  | [default to true]
 **Status** | **TransactionStatus** |  | 
+**Starts** | **string** |  | [optional] 
 **Expires** | **DateTime** |  | 
 **CreatedAt** | **DateTime** |  | 
 **UpdatedAt** | **DateTime** |  | 

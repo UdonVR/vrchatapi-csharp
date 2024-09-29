@@ -1,6 +1,6 @@
 # VRChat.API.Api.AuthenticationApi
 
-All URIs are relative to *https://api.vrchat.cloud/api/1*
+All URIs are relative to *https://vrchat.com/api/1*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -15,7 +15,7 @@ All URIs are relative to *https://api.vrchat.cloud/api/1*
 
 <a name="checkuserexists"></a>
 # **CheckUserExists**
-> UserExists CheckUserExists (string email = null, string displayName = null, string userId = null, string excludeUserId = null)
+> UserExists CheckUserExists (string email = null, string displayName = null, string username = null, string excludeUserId = null)
 
 Check User Exists
 
@@ -36,17 +36,17 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             var apiInstance = new AuthenticationApi(config);
             var email = "email_example";  // string | Filter by email. (optional) 
             var displayName = "displayName_example";  // string | Filter by displayName. (optional) 
-            var userId = "userId_example";  // string | Filter by UserID. (optional) 
+            var username = "username_example";  // string | Filter by Username. (optional) 
             var excludeUserId = "excludeUserId_example";  // string | Exclude by UserID. (optional) 
 
             try
             {
                 // Check User Exists
-                UserExists result = apiInstance.CheckUserExists(email, displayName, userId, excludeUserId);
+                UserExists result = apiInstance.CheckUserExists(email, displayName, username, excludeUserId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -67,7 +67,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Check User Exists
-    ApiResponse<UserExists> response = apiInstance.CheckUserExistsWithHttpInfo(email, displayName, userId, excludeUserId);
+    ApiResponse<UserExists> response = apiInstance.CheckUserExistsWithHttpInfo(email, displayName, username, excludeUserId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -86,7 +86,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **email** | **string** | Filter by email. | [optional]  |
 | **displayName** | **string** | Filter by displayName. | [optional]  |
-| **userId** | **string** | Filter by UserID. | [optional]  |
+| **username** | **string** | Filter by Username. | [optional]  |
 | **excludeUserId** | **string** | Exclude by UserID. | [optional]  |
 
 ### Return type
@@ -134,7 +134,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -231,7 +231,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -330,7 +330,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -401,7 +401,7 @@ This endpoint does not need any parameter.
 
 <a name="verify2fa"></a>
 # **Verify2FA**
-> Verify2FAResult Verify2FA (TwoFactorAuthCode twoFactorAuthCode = null)
+> Verify2FAResult Verify2FA (TwoFactorAuthCode twoFactorAuthCode)
 
 Verify 2FA code
 
@@ -422,14 +422,14 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new AuthenticationApi(config);
-            var twoFactorAuthCode = new TwoFactorAuthCode(); // TwoFactorAuthCode |  (optional) 
+            var twoFactorAuthCode = new TwoFactorAuthCode(); // TwoFactorAuthCode | 
 
             try
             {
@@ -472,7 +472,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **twoFactorAuthCode** | [**TwoFactorAuthCode**](TwoFactorAuthCode.md) |  | [optional]  |
+| **twoFactorAuthCode** | [**TwoFactorAuthCode**](TwoFactorAuthCode.md) |  |  |
 
 ### Return type
 
@@ -498,7 +498,7 @@ catch (ApiException e)
 
 <a name="verify2faemailcode"></a>
 # **Verify2FAEmailCode**
-> Verify2FAEmailCodeResult Verify2FAEmailCode (TwoFactorEmailCode twoFactorEmailCode = null)
+> Verify2FAEmailCodeResult Verify2FAEmailCode (TwoFactorEmailCode twoFactorEmailCode)
 
 Verify 2FA email code
 
@@ -519,14 +519,14 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new AuthenticationApi(config);
-            var twoFactorEmailCode = new TwoFactorEmailCode(); // TwoFactorEmailCode |  (optional) 
+            var twoFactorEmailCode = new TwoFactorEmailCode(); // TwoFactorEmailCode | 
 
             try
             {
@@ -569,7 +569,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **twoFactorEmailCode** | [**TwoFactorEmailCode**](TwoFactorEmailCode.md) |  | [optional]  |
+| **twoFactorEmailCode** | [**TwoFactorEmailCode**](TwoFactorEmailCode.md) |  |  |
 
 ### Return type
 
@@ -616,7 +616,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -687,7 +687,7 @@ This endpoint does not need any parameter.
 
 <a name="verifyrecoverycode"></a>
 # **VerifyRecoveryCode**
-> Verify2FAResult VerifyRecoveryCode (TwoFactorAuthCode twoFactorAuthCode = null)
+> Verify2FAResult VerifyRecoveryCode (TwoFactorAuthCode twoFactorAuthCode)
 
 Verify 2FA code with Recovery code
 
@@ -708,14 +708,14 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new AuthenticationApi(config);
-            var twoFactorAuthCode = new TwoFactorAuthCode(); // TwoFactorAuthCode |  (optional) 
+            var twoFactorAuthCode = new TwoFactorAuthCode(); // TwoFactorAuthCode | 
 
             try
             {
@@ -758,7 +758,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **twoFactorAuthCode** | [**TwoFactorAuthCode**](TwoFactorAuthCode.md) |  | [optional]  |
+| **twoFactorAuthCode** | [**TwoFactorAuthCode**](TwoFactorAuthCode.md) |  |  |
 
 ### Return type
 

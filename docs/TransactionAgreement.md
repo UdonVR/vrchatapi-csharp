@@ -1,14 +1,16 @@
 # VRChat.API.Model.TransactionAgreement
+Represents a single Transaction, which is likely between VRChat and Steam.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AgreementId** | **string** |  | 
-**ItemId** | **decimal** |  | 
+**ItemId** | **int** |  | 
+**Agreement** | **string** |  | 
 **Status** | **string** | This is NOT TransactionStatus, but whatever Steam return. | 
 **Period** | **string** |  | 
-**Frequency** | **decimal** |  | 
+**Frequency** | **int** |  | 
 **BillingType** | **string** |  | 
 **StartDate** | **string** |  | 
 **EndDate** | **string** |  | 
@@ -19,8 +21,8 @@ Name | Type | Description | Notes
 **LastPayment** | **string** |  | 
 **LastAmount** | **decimal** |  | 
 **LastAmountVat** | **decimal** |  | 
-**Outstanding** | **decimal** |  | 
-**FailedAttempts** | **decimal** |  | 
+**Outstanding** | **int** |  | 
+**FailedAttempts** | **int** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

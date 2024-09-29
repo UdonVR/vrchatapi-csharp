@@ -1,6 +1,6 @@
 # VRChat.API.Api.PlayermoderationApi
 
-All URIs are relative to *https://api.vrchat.cloud/api/1*
+All URIs are relative to *https://vrchat.com/api/1*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -34,7 +34,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -126,7 +126,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -224,7 +224,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -322,7 +322,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -400,7 +400,7 @@ catch (ApiException e)
 
 <a name="moderateuser"></a>
 # **ModerateUser**
-> PlayerModeration ModerateUser (ModerateUserRequest moderateUserRequest = null)
+> PlayerModeration ModerateUser (ModerateUserRequest moderateUserRequest)
 
 Moderate User
 
@@ -421,14 +421,14 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new PlayermoderationApi(config);
-            var moderateUserRequest = new ModerateUserRequest(); // ModerateUserRequest |  (optional) 
+            var moderateUserRequest = new ModerateUserRequest(); // ModerateUserRequest | 
 
             try
             {
@@ -471,7 +471,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **moderateUserRequest** | [**ModerateUserRequest**](ModerateUserRequest.md) |  | [optional]  |
+| **moderateUserRequest** | [**ModerateUserRequest**](ModerateUserRequest.md) |  |  |
 
 ### Return type
 
@@ -497,7 +497,7 @@ catch (ApiException e)
 
 <a name="unmoderateuser"></a>
 # **UnmoderateUser**
-> Success UnmoderateUser (ModerateUserRequest moderateUserRequest = null)
+> Success UnmoderateUser (ModerateUserRequest moderateUserRequest)
 
 Unmoderate User
 
@@ -518,14 +518,14 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api.vrchat.cloud/api/1";
+            config.BasePath = "https://vrchat.com/api/1";
             // Configure API key authorization: authCookie
             config.AddApiKey("auth", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("auth", "Bearer");
 
             var apiInstance = new PlayermoderationApi(config);
-            var moderateUserRequest = new ModerateUserRequest(); // ModerateUserRequest |  (optional) 
+            var moderateUserRequest = new ModerateUserRequest(); // ModerateUserRequest | 
 
             try
             {
@@ -568,7 +568,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **moderateUserRequest** | [**ModerateUserRequest**](ModerateUserRequest.md) |  | [optional]  |
+| **moderateUserRequest** | [**ModerateUserRequest**](ModerateUserRequest.md) |  |  |
 
 ### Return type
 
