@@ -46,7 +46,7 @@ namespace VRChat.API.Model
         /// <param name="order">order.</param>
         /// <param name="createdAt">createdAt.</param>
         /// <param name="updatedAt">updatedAt.</param>
-        public GroupRole(string id = default(string), string groupId = default(string), string name = default(string), string description = default(string),bool isAddedOnJoin, bool isSelfAssignable = false, List<string> permissions = default(List<string>), bool isManagementRole = false, bool requiresTwoFactor = false, bool requiresPurchase = false, int order = default(int), DateTime createdAt = default(DateTime), DateTime updatedAt = default(DateTime))
+        public GroupRole(string id = default(string), string groupId = default(string), string name = default(string), string description = default(string), bool isAddedOnJoin = default(bool), bool isSelfAssignable = false, List<string> permissions = default(List<string>), bool isManagementRole = false, bool requiresTwoFactor = false, bool requiresPurchase = false, int order = default(int), DateTime createdAt = default(DateTime), DateTime updatedAt = default(DateTime))
         {
             this.Id = id;
             this.GroupId = groupId;
