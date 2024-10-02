@@ -65,8 +65,13 @@ namespace VRChat.API.Model
         /// Enum Userblocked for value: userblocked
         /// </summary>
         [EnumMember(Value = "userblocked")]
-        Userblocked = 6
+        Userblocked = 6,
 
+        /// <summary>
+        /// Enum Groupblocked for value: groupblocked
+        /// </summary>
+        [EnumMember(Value = "groupblocked")]
+        Groupblocked = 7
     }
 
 }
