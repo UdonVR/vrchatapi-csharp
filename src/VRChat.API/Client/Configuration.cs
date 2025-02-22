@@ -110,7 +110,7 @@ namespace VRChat.API.Client
         {
             Proxy = null;
             UserAgent = WebUtility.UrlEncode("vrchatapi-csharp");
-            BasePath = "https://vrchat.com/api/1";
+            BasePath = "https://api.vrchat.cloud/api/1";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
             ApiKeyPrefix = new ConcurrentDictionary<string, string>();
@@ -118,7 +118,7 @@ namespace VRChat.API.Client
             {
                 {
                     new Dictionary<string, object> {
-                        {"url", "https://vrchat.com/api/1"},
+                        {"url", "https://api.vrchat.cloud/api/1"},
                         {"description", "No description provided"},
                     }
                 }
@@ -139,7 +139,7 @@ namespace VRChat.API.Client
             IDictionary<string, string> defaultHeaders,
             IDictionary<string, string> apiKey,
             IDictionary<string, string> apiKeyPrefix,
-            string basePath = "https://vrchat.com/api/1") : this()
+            string basePath = "https://api.vrchat.cloud/api/1") : this()
         {
             if (string.IsNullOrWhiteSpace(basePath))
                 throw new ArgumentException("The provided basePath is invalid.", "basePath");

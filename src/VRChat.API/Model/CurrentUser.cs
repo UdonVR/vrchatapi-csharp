@@ -35,7 +35,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets DeveloperType
         /// </summary>
-        [DataMember(Name = "developerType", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "developerType", EmitDefaultValue = true)]
         public DeveloperType DeveloperType { get; set; }
 
         /// <summary>
